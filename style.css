@@ -1,0 +1,658 @@
+/* ===================================================================
+  LITTLE FIN SWIM - design tokens
+   Palette pulled from the subject itself: deep tank water, driftwood
+   tannin, plant foliage, and the pale glint of light on the surface.
+   =================================================================== */
+
+:root {
+  --color-bg:          #0A1614;   /* deep tank water */
+  --color-bg-alt:      #0F2320;   /* slightly lifted water panel */
+  --color-bg-panel:    #16110C;   /* substrate — dark warm brown-black */
+  --color-text:        #E7EEEC;
+  --color-text-muted:  #93A8A3;
+  --color-text-faint:  #5E726D;
+
+  --color-amber:       #C68A4B;   /* tannin / driftwood */
+  --color-amber-soft:  #8C6238;
+  --color-green:       #5C8A62;   /* plant growth */
+  --color-green-soft:  #3E5E43;
+  --color-surface:     #DCEEE8;   /* surface highlight */
+
+  --color-border:      rgba(220, 238, 232, 0.12);
+  --color-border-soft: rgba(220, 238, 232, 0.07);
+
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  --font-body:    'Literata', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --wrap-width: 880px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --space-6: 8rem;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===================================================================
+   Reset / base
+   =================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--color-bg);
+  scroll-behavior: smooth;
+}
+.surface-line__svg {
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+.surface-line__line {
+  line-height: 1.65;
+  stroke: url(#surfaceLineGradient);
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+.surface-line__glow {
+  color: inherit;
+  stroke: var(--color-surface);
+  text-underline-offset: 3px;
+}
+
+a:hover { text-decoration-color: currentColor; }
+
+:focus-visible {
+  color: var(--color-surface);
+  outline-offset: 3px;
+  border-radius: 2px;
+/* section dividers - smaller echo of the surface motif */
+
+.wrap {
+  max-width: var(--wrap-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin: 0 0 var(--space-2);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  margin: 0 0 var(--space-4);
+  letter-spacing: -0.01em;
+}
+
+.note {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+/* ===================================================================
+   Header
+   =================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 22, 20, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-2);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.site-nav a { text-decoration: none; color: var(--color-text-muted); }
+.site-nav a:hover { color: var(--color-surface); }
+.site-nav a:not(:last-child) { margin-right: var(--space-3); }
+
+/* ===================================================================
+   Hero
+   =================================================================== */
+
+.hero {
+  position: relative;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-4);
+  overflow: hidden;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(92, 138, 98, 0.10), transparent 70%),
+    var(--color-bg);
+}
+
+.hero__inner { position: relative; z-index: 2; text-align: center; }
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 var(--space-3);
+  letter-spacing: -0.01em;
+}
+
+.hero__tagline {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 34em;
+  margin-inline: auto;
+}
+
+.tank-scene {
+  position: relative;
+  width: min(100%, 680px);
+  aspect-ratio: 16 / 7;
+  margin: var(--space-4) auto 0;
+  overflow: hidden;
+  border: 1px solid rgba(220, 238, 232, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(220, 238, 232, 0.16), transparent 24%),
+    radial-gradient(circle at 20% 15%, rgba(198, 138, 75, 0.20), transparent 30%),
+    linear-gradient(180deg, #173a36 0%, #102623 58%, #15100b 100%);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.tank-scene::before {
+  content: '';
+  position: absolute;
+  inset: 11% 5% auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220, 238, 232, 0.7), transparent);
+}
+
+.tank-scene__water,
+.tank-scene__light,
+.tank-scene__bubbles,
+.tank-scene__plant,
+.tank-scene__wood,
+.tank-scene__fish,
+.tank-scene__shrimp,
+.tank-scene__substrate { position: absolute; }
+
+.tank-scene__water {
+  inset: 0;
+  background: repeating-linear-gradient(160deg, transparent 0 22px, rgba(220, 238, 232, 0.035) 23px 24px);
+  opacity: 0.55;
+}
+
+.tank-scene__light {
+  top: -16%;
+  left: 18%;
+  width: 22%;
+  height: 130%;
+  background: linear-gradient(90deg, transparent, rgba(220, 238, 232, 0.10), transparent);
+  transform: rotate(12deg);
+}
+
+.tank-scene__substrate {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18%;
+  background:
+    radial-gradient(circle at 10% 30%, rgba(198, 138, 75, 0.28) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 45%, rgba(220, 238, 232, 0.13) 0 1px, transparent 2px),
+    linear-gradient(180deg, #23180f, #120d08);
+}
+
+.tank-scene__plant { bottom: 15%; width: 26%; height: 58%; }
+.tank-scene__plant--left { left: 8%; }
+.tank-scene__plant--right { right: 8%; transform: scaleX(-1); }
+
+.tank-scene__plant span {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #79a76e, #315839);
+  transform-origin: bottom center;
+}
+
+.tank-scene__plant span:nth-child(1) { left: 18%; height: 82%; transform: rotate(-8deg); }
+.tank-scene__plant span:nth-child(2) { left: 42%; height: 100%; transform: rotate(5deg); }
+.tank-scene__plant span:nth-child(3) { left: 64%; height: 70%; transform: rotate(13deg); }
+
+.tank-scene__wood {
+  left: 30%;
+  bottom: 17%;
+  width: 31%;
+  height: 13%;
+  border-radius: 55% 35% 45% 20%;
+  background: linear-gradient(135deg, #6f4727, #2a190d 72%);
+  transform: rotate(-7deg);
+  box-shadow: inset 12px 0 22px rgba(255, 221, 170, 0.08);
+}
+
+.tank-scene__fish {
+  right: 25%;
+  top: 40%;
+  width: 13%;
+  height: 13%;
+  border-radius: 64% 40% 54% 46%;
+  background: linear-gradient(90deg, #b35f46, #253d3d);
+  box-shadow: 18px 4px 0 -8px rgba(179, 95, 70, 0.75);
+}
+
+.tank-scene__fish::before {
+  content: '';
+  position: absolute;
+  right: -22%;
+  top: 18%;
+  border-style: solid;
+  border-width: 12px 0 12px 22px;
+  border-color: transparent transparent transparent rgba(179, 95, 70, 0.72);
+}
+
+.tank-scene__shrimp {
+  left: 20%;
+  bottom: 22%;
+  width: 8%;
+  height: 6%;
+  border: 2px solid rgba(220, 238, 232, 0.72);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-12deg);
+}
+
+.tank-scene__shrimp::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 45%;
+  width: 18px;
+  height: 1px;
+  background: rgba(220, 238, 232, 0.55);
+  transform: rotate(22deg);
+}
+
+.tank-scene__bubbles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1px solid rgba(220, 238, 232, 0.48);
+  border-radius: 50%;
+}
+
+.tank-scene__bubbles span:nth-child(1) { left: 55%; top: 58%; }
+.tank-scene__bubbles span:nth-child(2) { left: 57%; top: 44%; width: 4px; height: 4px; }
+.tank-scene__bubbles span:nth-child(3) { left: 54%; top: 31%; width: 8px; height: 8px; }
+.tank-scene__bubbles span:nth-child(4) { left: 58%; top: 20%; width: 3px; height: 3px; }
+
+/* floating bubbles — restrained, slow, ambient only */
+.hero__bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__bubbles span {
+  position: absolute;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(220,238,232,0.55), rgba(220,238,232,0.05));
+  animation: rise linear infinite;
+  opacity: 0;
+}
+
+.hero__bubbles span:nth-child(1) { left: 8%;  width: 4px;  height: 4px;  animation-duration: 14s; animation-delay: 0s; }
+.hero__bubbles span:nth-child(2) { left: 18%; width: 7px;  height: 7px;  animation-duration: 19s; animation-delay: 2s; }
+.hero__bubbles span:nth-child(3) { left: 34%; width: 3px;  height: 3px;  animation-duration: 16s; animation-delay: 5s; }
+.hero__bubbles span:nth-child(4) { left: 52%; width: 5px;  height: 5px;  animation-duration: 21s; animation-delay: 1s; }
+.hero__bubbles span:nth-child(5) { left: 67%; width: 4px;  height: 4px;  animation-duration: 17s; animation-delay: 7s; }
+.hero__bubbles span:nth-child(6) { left: 81%; width: 6px;  height: 6px;  animation-duration: 20s; animation-delay: 3s; }
+.hero__bubbles span:nth-child(7) { left: 92%; width: 3px;  height: 3px;  animation-duration: 15s; animation-delay: 9s; }
+
+@keyframes rise {
+  0%   { transform: translateY(0) translateX(0);    opacity: 0; }
+  8%   { opacity: 0.5; }
+  92%  { opacity: 0.35; }
+  100% { transform: translateY(-92vh) translateX(14px); opacity: 0; }
+}
+
+/* the surface line - signature element */
+.surface-line {
+  position: relative;
+  z-index: 2;
+  margin-block: var(--space-4);
+  height: 40px;
+}
+
+.surface-line__svg {
+  width: 100%;
+  height: 60px;
+  overflow: visible;
+}
+
+.surface-line__line {
+  fill: none;
+  stroke: url(#surfaceLineGradient);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  animation: shimmer 10s var(--ease) infinite alternate;
+}
+
+.surface-line__glow {
+  fill: none;
+  stroke: var(--color-surface);
+  stroke-width: 8;
+  stroke-linecap: round;
+  opacity: 0.06;
+  filter: blur(4px);
+}
+
+@keyframes shimmer {
+  0%   { stroke-width: 1.2; opacity: 0.75; }
+  100% { stroke-width: 1.8; opacity: 1; }
+}
+
+.readout {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.readout__item {
+  text-align: center;
+}
+
+.readout__item:not(:last-child) { margin-right: var(--space-4); }
+
+.readout__item dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: 0.3rem;
+}
+
+.readout__item dd {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: var(--color-surface);
+  margin: 0;
+}
+
+/* section dividers - smaller echo of the surface motif */
+.divider {
+  line-height: 0;
+  color: var(--color-border);
+}
+
+.divider svg {
+  width: 100%;
+  height: 24px;
+}
+
+.divider path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+/* ===================================================================
+   Tank section
+   =================================================================== */
+
+.tank {
+  padding-block: var(--space-5);
+  background: var(--color-bg-alt);
+}
+
+.tank__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.spec-card {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 6px;
+  padding: var(--space-3);
+}
+
+.spec-card__title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin: 0 0 var(--space-2);
+}
+
+.spec-card__title--spaced { margin-top: var(--space-3); }
+
+.spec-list {
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.spec-list__row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.spec-list__row:last-child { border-bottom: none; padding-bottom: 0; }
+
+.spec-list__row dt {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+.spec-list__row dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.plant-list {
+  list-style: none;
+  margin: 0 0 var(--space-1);
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.plant-list li {
+  font-size: 0.95rem;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.plant-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-green);
+}
+
+.stocking-plan {
+  list-style: none;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.stocking-plan li {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  color: var(--color-text-muted);
+}
+
+.stocking-plan li.is-done {
+  border-color: var(--color-green);
+  color: var(--color-surface);
+}
+
+.stocking-plan li:not(:last-child)::after {
+  content: '→';
+  margin-left: 0.6rem;
+  color: var(--color-text-faint);
+}
+
+/* ===================================================================
+   Journal section
+   =================================================================== */
+
+.journal { padding-block: var(--space-5); }
+
+.entries {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.entry {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.entry:first-child { border-top: none; padding-top: 0; }
+
+.entry__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.entry__tag {
+  color: var(--color-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: var(--space-2);
+}
+
+.entry__date {
+  color: var(--color-text-faint);
+}
+
+.entry__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.entry p {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: 62ch;
+}
+
+.entry p em, .entry p i { color: var(--color-text); }
+
+/* ===================================================================
+   Footer
+   =================================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--color-border-soft);
+  padding-block: var(--space-3);
+}
+
+.site-footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+.back-to-top { text-decoration: none; }
+.back-to-top:hover { color: var(--color-surface); }
+
+/* ===================================================================
+   Responsive
+   =================================================================== */
+
+@media (max-width: 760px) {
+  :root { --wrap-width: 100%; }
+
+  .tank__grid { grid-template-columns: 1fr; }
+
+  .site-nav { gap: var(--space-2); }
+
+  .readout { gap: var(--space-3); }
+
+  .spec-list__row { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* ===================================================================
+   Reduced motion
+   =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .hero__bubbles span { animation: none; display: none; }
+  .surface-line__line { animation: none; }
+}
