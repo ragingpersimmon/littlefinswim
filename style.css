@@ -46,33 +46,30 @@ html {
   background: var(--color-bg);
   scroll-behavior: smooth;
 }
-.surface-line__svg {
+
 body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-.surface-line__line {
   line-height: 1.65;
-  stroke: url(#surfaceLineGradient);
   text-rendering: optimizeLegibility;
 }
 
 img, svg { display: block; max-width: 100%; }
 
-.surface-line__glow {
+a {
   color: inherit;
-  stroke: var(--color-surface);
   text-underline-offset: 3px;
 }
 
 a:hover { text-decoration-color: currentColor; }
 
 :focus-visible {
-  color: var(--color-surface);
+  outline: 2px solid var(--color-surface);
   outline-offset: 3px;
   border-radius: 2px;
-/* section dividers - smaller echo of the surface motif */
+}
 
 .wrap {
   max-width: var(--wrap-width);
@@ -608,6 +605,56 @@ a:hover { text-decoration-color: currentColor; }
 .entry p em, .entry p i { color: var(--color-text); }
 
 /* ===================================================================
+   Page nav — homepage links out to subpages
+   =================================================================== */
+
+.page-nav { padding-block: var(--space-5); }
+
+.page-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.page-nav__link {
+  display: block;
+  height: 100%;
+  padding: var(--space-3);
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.page-nav__link:hover { border-color: var(--color-border); }
+
+.page-nav__link:hover .page-nav__title { color: var(--color-surface); }
+
+.page-nav__title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.page-nav__title::after {
+  content: ' →';
+  color: var(--color-amber);
+}
+
+.page-nav__desc {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ===================================================================
    Footer
    =================================================================== */
 
@@ -638,6 +685,8 @@ a:hover { text-decoration-color: currentColor; }
   :root { --wrap-width: 100%; }
 
   .tank__grid { grid-template-columns: 1fr; }
+
+  .page-nav__list { grid-template-columns: 1fr; }
 
   .site-nav { gap: var(--space-2); }
 

@@ -5,19 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Little Fin Swim — a planted tank journal</title>
 <meta name="description" content="Notes from a 70L planted freshwater aquarium. Water chemistry, plants, and a slow stocking plan.">
+<link rel="canonical" href="https://littlefinswim.net/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://littlefinswim.net/">
+<meta property="og:title" content="Little Fin Swim — a planted tank journal">
+<meta property="og:description" content="Notes from a 70L planted freshwater aquarium. Water chemistry, plants, and a slow stocking plan.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://littlefinswim.net/">
+<meta name="twitter:title" content="Little Fin Swim — a planted tank journal">
+<meta name="twitter:description" content="Notes from a 70L planted freshwater aquarium. Water chemistry, plants, and a slow stocking plan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap site-header__inner">
-    <a href="#top" class="wordmark">Little Fin Swim</a>
+    <a href="/" class="wordmark">Little Fin Swim</a>
     <nav class="site-nav">
-      <a href="#tank">The Tank</a>
-      <a href="#journal">Journal</a>
+      <a href="/tank/">The Tank</a>
+      <a href="/journal/">Journal</a>
     </nav>
   </div>
 </header>
@@ -77,100 +86,24 @@
     </svg>
   </div>
 
-  <section class="tank" id="tank">
+  <nav class="page-nav" aria-label="Site sections">
     <div class="wrap">
-      <p class="eyebrow">Current setup</p>
-      <h2 class="section-title">The Tank</h2>
-
-      <div class="tank__grid">
-
-        <div class="spec-card">
-          <h3 class="spec-card__title">Equipment</h3>
-          <dl class="spec-list">
-            <div class="spec-list__row">
-              <dt>Volume</dt>
-              <dd>70L, planted</dd>
-            </div>
-            <div class="spec-list__row">
-              <dt>Filtration</dt>
-              <dd>Fluval 207 canister <span class="note">(407 upgrade planned)</span></dd>
-            </div>
-            <div class="spec-list__row">
-              <dt>CO&#8322;</dt>
-              <dd>Fzone 2.5L DIY system</dd>
-            </div>
-            <div class="spec-list__row">
-              <dt>Water changes</dt>
-              <dd>Prime dosed to new water volume — ~1&ndash;1.5&nbsp;mL per 42L</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div class="spec-card">
-          <h3 class="spec-card__title">Plants</h3>
-          <ul class="plant-list">
-            <li><em>Cabomba furcata</em></li>
-            <li><em>Ludwigia repens</em> &lsquo;Super Red&rsquo;</li>
-            <li><em>Echinodorus</em> spp. (swords)</li>
-            <li>Assorted mosses</li>
-          </ul>
-
-          <h3 class="spec-card__title spec-card__title--spaced">Stocking plan</h3>
-          <ol class="stocking-plan">
-            <li class="is-done"><span>Amano shrimp</span></li>
-            <li><span>Corydoras</span></li>
-            <li><span>Giant betta</span></li>
-          </ol>
-          <p class="note">Assassin snails removed ahead of shrimp.</p>
-        </div>
-
-      </div>
+      <ul class="page-nav__list">
+        <li>
+          <a class="page-nav__link" href="/tank/">
+            <span class="page-nav__title">The Tank</span>
+            <span class="page-nav__desc">Current setup — equipment, plants, and the stocking plan taken slowly.</span>
+          </a>
+        </li>
+        <li>
+          <a class="page-nav__link" href="/journal/">
+            <span class="page-nav__title">Journal</span>
+            <span class="page-nav__desc">Field notes as the tank changes — stocking, water chemistry, troubleshooting.</span>
+          </a>
+        </li>
+      </ul>
     </div>
-  </section>
-
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 1200 24" preserveAspectRatio="none">
-      <path d="M0,12 C150,22 300,2 450,12 C600,22 750,2 900,12 C1050,22 1150,6 1200,12" />
-    </svg>
-  </div>
-
-  <section class="journal" id="journal">
-    <div class="wrap">
-      <p class="eyebrow">Field notes</p>
-      <h2 class="section-title">Journal</h2>
-
-      <div class="entries">
-
-        <article class="entry">
-          <div class="entry__meta">
-            <span class="entry__tag">Stocking</span>
-            <time class="entry__date">August 9, 2026</time>
-          </div>
-          <h3 class="entry__title">First residents: Amano shrimp are in</h3>
-          <p>Pulled the assassin snails — decided I didn&rsquo;t want a predator loose in the tank ahead of shrimp. Amano go in first, as cleanup crew and as a live water-quality test before anything more sensitive goes in. Corydoras next once the shrimp settle, giant betta last once the tank&rsquo;s fully proven out. Plants are filling in well — the Ludwigia is colouring up nicely under the current lighting, and the swords are finally pushing new growth.</p>
-        </article>
-
-        <article class="entry">
-          <div class="entry__meta">
-            <span class="entry__tag">Troubleshooting</span>
-            <time class="entry__date">July 14, 2026</time>
-          </div>
-          <h3 class="entry__title">Detritus worms, and what they were actually telling me</h3>
-          <p>Noticed a small white worm bloom crawling the glass near the substrate line. Not harmful on their own, but a symptom — anaerobic pockets forming under the aquasoil where mulm had built up, plus a stretch of slight overfeeding while I was dialing in the CO&#8322;. Cut feeding back, ran a gravel vac pass through the low-flow corners, and the population dropped off within a week. Note to future self: overfeeding shows up in the substrate before it shows up anywhere else.</p>
-        </article>
-
-        <article class="entry">
-          <div class="entry__meta">
-            <span class="entry__tag">Water chemistry</span>
-            <time class="entry__date">June 6, 2026</time>
-          </div>
-          <h3 class="entry__title">Dialing in before anything goes in</h3>
-          <p>Confirmed parameters before adding anything alive — GH 8, KH 6, pH 7.2, holding steady at 26.2&deg;C. Repositioned the spray bar along the back pane, angled just under the surface, enough flow to move the whole column without flattening the Cabomba. Running the Fluval 207 for now; a 407 is on the list once the corydoras and betta actually show up and the bioload catches up to the plants.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
+  </nav>
 
 </main>
 
@@ -181,6 +114,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
