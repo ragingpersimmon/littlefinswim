@@ -112,19 +112,23 @@
   }
 
   function renderProductPlugins() {
-    var anchors = document.querySelectorAll('[data-product-plugin-id]');
+    var anchors = Array.prototype.slice.call(
+      document.querySelectorAll('[data-product-plugin-id]')
+    );
     if (!anchors.length) return;
 
-    anchors.forEach(function (anchor) {
+    for (var index = 0; index < anchors.length; index += 1) {
+      var anchor = anchors[index];
       var moduleId = anchor.getAttribute('data-product-plugin-id');
       var productModule = productModules[moduleId];
-      if (!productModule) return;
+      if (!productModule) continue;
 
+      var headingId = 'product-module-title-' + index;
       var html = [
-        '<aside class="product-module" aria-label="' + escapeHtml(productModule.title) + '">',
+        '<aside class="product-module" aria-labelledby="' + headingId + '">',
         '  <div class="product-module__header">',
         '    <p class="product-module__eyebrow">Recommended products</p>',
-        '    <h4 class="product-module__title">' + escapeHtml(productModule.title) + '</h4>',
+        '    <h3 id="' + headingId + '" class="product-module__title">' + escapeHtml(productModule.title) + '</h3>',
         '    <p class="product-module__intro">' + escapeHtml(productModule.intro) + '</p>',
         '  </div>',
         '  <div class="product-module__grid">'
@@ -134,7 +138,7 @@
         html.push(
           '    <article class="product-card">',
           '      <p class="product-card__eyebrow">Suggested item</p>',
-          '      <h5 class="product-card__name">' + escapeHtml(item.name) + '</h5>',
+          '      <h4 class="product-card__name">' + escapeHtml(item.name) + '</h4>',
           '      <p class="product-card__meta">' + escapeHtml(item.meta) + '</p>',
           '      <p class="product-card__detail">' + escapeHtml(item.detail) + '</p>',
           '    </article>'
@@ -148,7 +152,7 @@
 
       anchor.insertAdjacentHTML('afterend', html.join(''));
       anchor.remove();
-    });
+    }
   }
 
   renderProductPlugins();
