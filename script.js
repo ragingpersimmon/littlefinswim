@@ -7,6 +7,68 @@
     '(prefers-reduced-motion: reduce)'
   ).matches;
 
+  var productModules = {
+    'lighting-timer': {
+      title: 'Lighting timer',
+      intro: 'A timer helps keep the aquarium light cycle regular without relying on manual switching.',
+      products: [
+        {
+          name: 'Coralife Digital Power Center',
+          meta: '$69.00 · Amazon CA',
+          detail: 'A simple way to keep a dependable lighting schedule for planted tanks.'
+        }
+      ]
+    },
+    'shrimp-habitat': {
+      title: 'Shrimp habitat',
+      intro: 'These habitat products can help create a more natural, stable shrimp environment without overpromising treatment claims.',
+      products: [
+        {
+          name: 'Fluval Plant & Shrimp Stratum',
+          meta: '$23.99 · Dyno.ca',
+          detail: 'A soft substrate option that can support a planted, shrimp-friendly setup.'
+        },
+        {
+          name: 'Indian almond leaves',
+          meta: '30-piece set · varied retailers',
+          detail: 'A classic shrimp-habitat addition that can influence the tank microenvironment.'
+        },
+        {
+          name: 'Cholla wood',
+          meta: 'Varies by seller',
+          detail: 'A natural-looking anchor for hiding spaces and grazing areas.'
+        }
+      ]
+    },
+    'water-parameters': {
+      title: 'Water parameters',
+      intro: 'A reliable test kit makes it easier to understand GH, KH, pH, and temperature before making changes.',
+      products: [
+        {
+          name: 'API GH & KH Test Kit',
+          meta: '$19.99 · La Niche & Moi + others',
+          detail: 'A practical tool for checking the mineral stability that matters for shrimp and plants.'
+        }
+      ]
+    },
+    'filtration-setup': {
+      title: 'Filtration setup',
+      intro: 'For gentle, low-stress circulation, a small sponge filter can be a good backup or primary setup in a smaller tank.',
+      products: [
+        {
+          name: 'Hikari Bacto-Surge Sponge Filter Small',
+          meta: '$9.55 · angelfins.ca',
+          detail: 'A compact option for supplemental filtration and gentle aeration.'
+        },
+        {
+          name: 'Pawfly Aquarium Check Valves',
+          meta: '$7.99 · Amazon CA',
+          detail: 'A simple safeguard that helps keep water movement predictable when using air-driven setups.'
+        }
+      ]
+    }
+  };
+
   var entries = document.querySelectorAll('.entry');
 
   if (entries.length) {
@@ -40,90 +102,35 @@
     }
   }
 
-  renderProductPlugins();
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
 
   function renderProductPlugins() {
-    var productModules = {
-      'lighting-timer': {
-        title: 'Lighting timer',
-        intro: 'A timer helps keep the aquarium light cycle regular without relying on manual switching.',
-        products: [
-          {
-            name: 'Coralife Digital Power Center',
-            meta: '$69.00 · Amazon CA',
-            detail: 'A simple way to keep a dependable lighting schedule for planted tanks.'
-          }
-        ]
-      },
-      'shrimp-habitat': {
-        title: 'Shrimp habitat',
-        intro: 'These habitat products can help create a more natural, stable shrimp environment without overpromising treatment claims.',
-        products: [
-          {
-            name: 'Fluval Plant & Shrimp Stratum',
-            meta: '$23.99 · Dyno.ca',
-            detail: 'A soft substrate option that can support a planted, shrimp-friendly setup.'
-          },
-          {
-            name: 'Indian almond leaves',
-            meta: '30-piece set · varied retailers',
-            detail: 'A classic shrimp-habitat addition that can influence the tank microenvironment.'
-          },
-          {
-            name: 'Cholla wood',
-            meta: 'Varies by seller',
-            detail: 'A natural-looking anchor for hiding spaces and grazing areas.'
-          }
-        ]
-      },
-      'water-parameters': {
-        title: 'Water parameters',
-        intro: 'A reliable test kit makes it easier to understand GH, KH, pH, and temperature before making changes.',
-        products: [
-          {
-            name: 'API GH & KH Test Kit',
-            meta: '$19.99 · La Niche & Moi + others',
-            detail: 'A practical tool for checking the mineral stability that matters for shrimp and plants.'
-          }
-        ]
-      },
-      'filtration-setup': {
-        title: 'Filtration setup',
-        intro: 'For gentle, low-stress circulation, a small sponge filter can be a good backup or primary setup in a smaller tank.',
-        products: [
-          {
-            name: 'Hikari Bacto-Surge Sponge Filter Small',
-            meta: '$9.55 · angelfins.ca',
-            detail: 'A compact option for supplemental filtration and gentle aeration.'
-          },
-          {
-            name: 'Pawfly Aquarium Check Valves',
-            meta: '$7.99 · Amazon CA',
-            detail: 'A simple safeguard that helps keep water movement predictable when using air-driven setups.'
-          }
-        ]
-      }
-    };
-
     var anchors = document.querySelectorAll('[data-product-plugin-id]');
     if (!anchors.length) return;
 
     anchors.forEach(function (anchor) {
       var moduleId = anchor.getAttribute('data-product-plugin-id');
-      var module = productModules[moduleId];
-      if (!module) return;
+      var productModule = productModules[moduleId];
+      if (!productModule) return;
 
       var html = [
-        '<aside class="product-module" aria-label="' + escapeHtml(module.title) + '">',
+        '<aside class="product-module" aria-label="' + escapeHtml(productModule.title) + '">',
         '  <div class="product-module__header">',
-        '    <p class="eyebrow">Recommended products</p>',
-        '    <h4 class="product-module__title">' + escapeHtml(module.title) + '</h4>',
-        '    <p class="product-module__intro">' + escapeHtml(module.intro) + '</p>',
+        '    <p class="product-module__eyebrow">Recommended products</p>',
+        '    <h4 class="product-module__title">' + escapeHtml(productModule.title) + '</h4>',
+        '    <p class="product-module__intro">' + escapeHtml(productModule.intro) + '</p>',
         '  </div>',
         '  <div class="product-module__grid">'
       ];
 
-      module.products.forEach(function (item) {
+      productModule.products.forEach(function (item) {
         html.push(
           '    <article class="product-card">',
           '      <p class="product-card__eyebrow">Suggested item</p>',
@@ -140,16 +147,9 @@
       );
 
       anchor.insertAdjacentHTML('afterend', html.join(''));
-      anchor.classList.add('is-rendered');
+      anchor.remove();
     });
   }
 
-  function escapeHtml(value) {
-    return String(value)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
+  renderProductPlugins();
 })();

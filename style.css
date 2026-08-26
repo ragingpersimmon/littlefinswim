@@ -621,6 +621,15 @@ a:hover { text-decoration-color: currentColor; }
   margin-bottom: var(--space-2);
 }
 
+.product-module__eyebrow {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+
 .product-module__title {
   margin: 0 0 0.35rem;
   font-family: var(--font-display);
