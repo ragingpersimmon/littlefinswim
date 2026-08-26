@@ -604,6 +604,78 @@ a:hover { text-decoration-color: currentColor; }
 
 .entry p em, .entry p i { color: var(--color-text); }
 
+.product-plugin-anchor {
+  margin-block: var(--space-3);
+}
+
+.product-module {
+  margin-block: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(22, 17, 12, 0.95), rgba(15, 35, 32, 0.92));
+  box-shadow: inset 0 1px 0 rgba(220, 238, 232, 0.05);
+}
+
+.product-module__header {
+  margin-bottom: var(--space-2);
+}
+
+.product-module__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-surface);
+}
+
+.product-module__intro {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.product-module__grid {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.product-card {
+  padding: 1rem;
+  border-radius: 5px;
+  background: rgba(220, 238, 232, 0.03);
+  border: 1px solid var(--color-border-soft);
+}
+
+.product-card__eyebrow {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+
+.product-card__name {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.product-card__meta {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-green);
+}
+
+.product-card__detail {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
 /* ===================================================================
    Page nav — homepage links out to subpages
    =================================================================== */
