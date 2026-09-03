@@ -20,7 +20,8 @@
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
+  <a class="skip-link" href="#main-content">Skip to content</a>
+ 
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a href="/" class="wordmark">Little Fin Swim</a>
@@ -31,8 +32,8 @@
   </div>
 </header>
 
-<main id="top">
-
+<main id="main-content" tabindex="-1">
+ 
   <section class="hero" id="hero">
     <div class="hero__bubbles" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -80,6 +81,24 @@
     </div>
   </section>
 
+  <section class="overview" aria-labelledby="overview-title">
+    <div class="wrap overview__inner">
+      <div class="overview__content">
+        <p class="eyebrow">About the log</p>
+        <h2 id="overview-title" class="section-title">A calm record of a planted tank in progress</h2>
+        <p class="overview__lead">This site keeps the details simple: equipment, water chemistry, plant growth, and a slow stocking plan. The goal is a steady reference rather than noise.</p>
+      </div>
+      <div class="overview__card">
+        <p class="overview__label">Current focus</p>
+        <ul class="overview__list">
+          <li>Stable parameters before adding more livestock</li>
+          <li>Plant growth and substrate health</li>
+          <li>Slow, deliberate stocking</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+ 
   <div class="divider" aria-hidden="true">
     <svg viewBox="0 0 1200 24" preserveAspectRatio="none">
       <path d="M0,12 C150,2 300,22 450,12 C600,2 750,22 900,12 C1050,2 1150,18 1200,12" />
@@ -110,7 +129,7 @@
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <p>Little Fin Swim — a planted tank log, updated as the tank changes.</p>
-    <a href="#top" class="back-to-top">Back to top ↑</a>
+    <a href="#main-content" class="back-to-top">Back to top ↑</a>
   </div>
 </footer>
 
